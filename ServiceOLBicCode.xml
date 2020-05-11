@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="scheduler_job_documentation_v1.1.xsl"?>
+<description xmlns="http://www.sos-berlin.com/schema/scheduler_job_documentation_v1.1"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.sos-berlin.com/schema/scheduler_job_documentation_v1.1 http://www.sos-berlin.com/schema/scheduler_job_documentation_v1.1.xsd">
+   <job xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        name="ServiceOLBicCode"
+        title="Servicio Open Legacy Código BIC"
+        order="no"
+        tasks="1">
+      <script language="java"
+              java_class="com.wlopera.ol.BicCodeService"
+              resource="1">
+    </script>
+  </job>
+  <releases xmlns:xi="http://www.w3.org/2001/XInclude"
+			 xmlns:xhtml="http://www.w3.org/1999/xhtml">
+		<release id="1.0" created="2020-05-05" modified="2020-05-05">
+			<title>version 1.0</title>
+			<author name="William Lopera" email="william.lopera@pranical.com"/>
+		</release>
+	</releases>
+   <resources xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      <file os="all" type="java" file="com.wlopera.ol.BicCodeService" id="1">
+         <note language="de">
+            <div xmlns="http://www.w3.org/1999/xhtml">Administración código BIC </div>
+         </note>
+         <note language="en">
+            <div xmlns="http://www.w3.org/1999/xhtml">Administración código BIC</div>
+         </note>
+      </file>
+  </resources>
+   <configuration>
+      <params id="job_parameter">
+         <param xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                name="DATA"
+                default_value=""
+                required="false">
+            <note language="de">
+               <div xmlns="http://www.w3.org/1999/xhtml">
+				Valor del campo DATA, solo como prueba 
+          </div>
+            </note>
+            <note language="en">
+               <div xmlns="http://www.w3.org/1999/xhtml">
+				Valor del campo DATA, solo como prueba 
+          </div>
+            </note>
+         </param>
+		     <param xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                name="FILE"
+                default_value=""
+                required="true">
+            <note language="de">
+               <div xmlns="http://www.w3.org/1999/xhtml">
+				Valor del campo FILE, Documento ISO
+          </div>
+            </note>
+            <note language="en">
+               <div xmlns="http://www.w3.org/1999/xhtml">
+				Valor del campo FILE, Documento ISO
+          </div>
+            </note>
+         </param>
+      </params>
+   </configuration>
+   <documentation xmlns:xhtml="http://www.w3.org/1999/xhtml" language="de">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+          Servicio Open Legay para administración de Códigos BIC
+      <br/>
+         <br/>
+		 Estas funciones permiten:
+      <br/>
+         <br/>
+         <ul>
+            <li>Consultar los Códigos BIC actuales</li>
+            <li>Crear códigos BIC</li>
+            <li>Modificar códigos BIC</li>
+            <li>Eliminar códigos BIC </li>
+            
+         </ul>
+      Uso de PL para Consulta, creación, modificación y borado de codigos BIC
+    </div>
+  </documentation>
+   <documentation xmlns:xhtml="http://www.w3.org/1999/xhtml" language="en">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+      Servicio Open Legay para administración de Códigos BIC
+      <br/>
+         <br/>
+		 Estas funciones permiten:
+      <br/>
+         <br/>
+         <ul>
+            <li>Consultar los Códigos BIC actuales</li>
+            <li>Crear códigos BIC</li>
+            <li>Modificar códigos BIC</li>
+            <li>Eliminar códigos BIC </li>
+            
+         </ul>
+      Uso de PL para Consulta, creación, modificación y borado de codigos BIC
+    </div>
+  </documentation>
+</description>

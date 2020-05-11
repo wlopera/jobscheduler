@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job title="BIc Code" order="yes" stop_on_error="false">
+  <description>
+    <include file="jobs/ServiceOLBicCode.xml"/>
+  </description>
+  <script language="java" java_class="com.wlopera.ol.BicCodeService"/>
+  <monitor name="configuration_monitor" ordering="0">
+    <script language="java" java_class="com.sos.jitl.jobchainnodeparameter.monitor.JobchainNodeSubstituteMonitor"/>
+  </monitor>
+  <run_time/>
+</job>

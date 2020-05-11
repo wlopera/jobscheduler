@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<order priority="0" state="bicCode">
+  <params>
+    <param name="DATA" value="${SCHEDULER_PARAM_DATA}"/>
+    <param name="FILE" value="ISO"/>
+  </params>
+  <run_time/>
+</order>
