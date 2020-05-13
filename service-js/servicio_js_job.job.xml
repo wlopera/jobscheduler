@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job title="Pruebas Servicio Javascript" order="yes" stop_on_error="false">
+  <params>
+    <param name="KEY" value="valor_1"/>
+  </params>
+  <script language="java:javascript">
+<![CDATA[
+
+var ENDPOINT_BASE="192.168.251.30";
+var PORT = 9080;
+var OAUTH2_ENDPOINT = "/uaa/oauth/token?grant_type=client_credentials&scope=APISecured";
+var AUTHORIZATION = "Basic aW5ub3ZhY2lvbjozODk0ZTk0YTdiYmI0M2MyYWFkYmQ2Y2VjNWI0NTI4Yg==";
+var ENDPOINT_BIC_CODE ="/ach-iso-api/api/v1/core/query-bic-iso";
+
+function spooler_init(){
+  spooler_log.info( "llamada a spooler_init " );
+  return true;
+}
+
+function spooler_open(){
+  spooler_log.info( "llamada a spooler_open " );
+  return true;
+}
+
+function spooler_close(){
+  spooler_log.info( "llamada a spooler_close " );
+}
+
+function spooler_process(){
+
+  var variable_set = getParameter();
+  var names = variable_set.names.split( ";" );
+  
+  for( var i in names )  
+	spooler_log.info( names[i] + "=" + variable_set.value( names[i] ) );
+  
+  var token = getOauthToken(OAUTH2_ENDPOINT);
+  
+  spooler_log.info("TOKEN: " + token);
+  
+  var pttBiccodeAch = getBitCode(ENDPOINT_BIC_CODE, token);
+
+  spooler_log.info("BIT CODE: " + pttBiccodeAch);
+
+  return true;
+}
+
+function getParameter () {
+  var params = spooler_task.params;
+  var taskParams = spooler_task.order.params;
+  if (taskParams != null) {
+	params.merge(taskParams);
+  }
+  
+  var order = spooler_task.order;
+
+  if (order != null) { 
+	params.merge(order.params);
+  }
+  return params;
+}
+
+	
+function getOauthToken(serviceUrl) {
+	
+	// set headers
+	com.sos.jitl.restclient.JobSchedulerRestClient.headers.put("Content-Type", "application/json");
+	com.sos.jitl.restclient.JobSchedulerRestClient.headers.put("Authorization", AUTHORIZATION);
+
+    var response = com.sos.jitl.restclient.JobSchedulerRestClient.postRestService(ENDPOINT_BASE,PORT, serviceUrl, "http", "");
+
+	if (response) {
+		eval ( "var jsonObject = " + response + ";" );	 
+		return  jsonObject.token_type + " " + jsonObject.access_token;
+	} else {
+		return  "No hay espuesta del servicio ";
+	}
+	
+	return "Error en el servicio"
+	
+}
+
+function getBitCode(serviceUrl, accessToken ) 
+{
+	// set headers
+	com.sos.jitl.restclient.JobSchedulerRestClient.headers.put("Authorization", accessToken);
+
+	var body = '{"company": 1, "country": 1,"format": "JSON","source": "CCBP","ipwebservice": "192.168.0.2","channel": 4 }'
+	
+    var response = com.sos.jitl.restclient.JobSchedulerRestClient.postRestService(ENDPOINT_BASE,PORT, serviceUrl, "http", body);
+
+	if (response) {
+		spooler_log.info("##=> Token response: " + response);
+		eval ( "var jsonObject = " + response + ";" );
+		spooler_log.info("##=> Token response-success: " + jsonObject.success);
+		spooler_log.info("##=> Token response-mensaje: " + jsonObject.message);
+		spooler_log.info("##=> Token response-data: " + jsonObject.data);
+		spooler_log.info("##=> Token response-traceid: " + jsonObject.traceid);
+		
+		return  response;
+	} else {
+		return  "No hay respuesta del servicio";
+	}
+	return  "Error en la consulta";
+}
+	
+]]>
+  </script>
+  <run_time/>
+</job>
