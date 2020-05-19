@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
-<order>
+<order priority="0" state="servicio_js_job">
+  <params>
+    <param name="FILENAME" value="crldpapa_056_050518302024120.s"/>
+  </params>
   <run_time/>
 </order>
