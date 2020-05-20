@@ -2,36 +2,32 @@
 
 	<job title="Pruebas Servicio Javascript" order="yes" stop_on_error="false">
 	<script language="java:javascript">
+		<include live_file="jobs/utility.js"/>
 		<include live_file="jobs/body.js"/>
-		<include live_file="jobs/process.js"/>
-		<include live_file="jobs/service.js"/><![CDATA[
-	var ENDPOINT_BASE = "192.168.251.30";
-	var PORT = 9080;
-	var OAUTH2_ENDPOINT = "/uaa/oauth/token?grant_type=client_credentials&scope=APISecured";
-	var AUTHORIZATION = "Basic aW5ub3ZhY2lvbjozODk0ZTk0YTdiYmI0M2MyYWFkYmQ2Y2VjNWI0NTI4Yg==";
-	var ENDPOINT_BIC_CODE = "/ach-iso-api/api/v1/core/query-bic-iso";
-
-	var LOAD_FILE_RECEIVED = 'LOAD_FILE_RECEIVED';
-	var LOAD_ISO_FILES = 'LOAD_ISO_FILES';
+		<include live_file="jobs/service.js"/>
+	<![CDATA[
 
 	function spooler_process() {
 
-		//processBicCode();
+		printInit();
 
-		var filename = getFilename();
-
-		if(filename){
-			switch (getTypeFile(filename)) {
-				case LOAD_FILE_RECEIVED:
-					processLoadFileReceived(filename);
-					break;
-				case LOAD_ISO_FILES:
-					processLoadIsoFiles(filename);
-					break;
-				default:
-					break;
+		var listNames =  getParameter().value(LIST_RESULT_FILENAMES).split(";");	
+		for (var index in listNames) {					
+			 var filename = listNames[index];	
+			 //spooler_log.info("##=> Parametros: " + listNames[index]);	
+			 if(filename){
+				switch (getTypeFile(filename)) {
+					case LOAD_FILE_RECEIVED:
+						processLoadFileReceived(filename);
+						break;
+					case LOAD_ISO_FILES:
+						processLoadIsoFiles(filename);
+						break;
+					default:
+						break;
+				}
 			}
-		}
+		}			
 		return true;
 	}
 ]]>

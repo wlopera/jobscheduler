@@ -1,39 +1,55 @@
-function getBodyBicCode(company, country, format, source, ipwebservice, channel) {
+/**
+ * getBodyLoadFileReceived: Generar los datos a enviar al servicio Load File received.
+ *
+ * @param company    Compañía - Instituci​ón financiera de la cual se desea extraer los datos:
+ *                          1 - Credicorp
+ *                       1007 - Unicorp
+ *                       8994 - Plan Inteligente
+ * @param country    ​País, 1 Panamá
+ * @param filename   Nombre del archivo recibido
+ * @param format     Formato, utilizar "json" para este caso.​
+ * @param source    ​​ Identificador del aplicativo que está llamando el servicio Web
+ * @param user       Usuario del CORE que va a procesar los archivos
+ *
+ * @author con_wlopera
+ */
+function getBodyLoadFileReceived(company, country, filename, format, source, user) {
   return (
     '{ "company":' +
     company +
     ', "country":' +
     country +
-    ', "format": "' +
-    format +
-    '", "source": "' +
-    source +
-    '", "ipwebservice": "' +
-    ipwebservice +
-    '", "channel": ' +
-    channel +
-    "}"
-  );
-}
-
-function getBodyLoadFileReceived(company, country, filename, source, format, user) {
-  return (
-    '{ "company":' +
-    company +
-    ', "country":' +
-    country +
-    '", "filename": "' +
+    ', "filename": "' +
     filename +
+    '", "format": "' +
+    format +
     '", "source": "' +
     source +
-    '", "format": ' +
-    format +
-    ', "user": ' +
+    '", "user": ' +
     user +
     "}"
   );
 }
 
+/**
+ * getBodyLoadIsoFiles:
+ *
+ * @param channel      Canal
+ * @param company      Compañía - Instituci​ón financiera de la cual se desea extraer los datos:
+ *                            1 - Credicorp
+ *                         1007 - Unicorp
+ *                         8994 - Plan Inteligente
+ * @param country    ​  País, 1 Panamá
+ * @param filename     Nombre del archivo recibido
+ * @param fileprefix   Prefijo del archivo recibido. Ejemplo PACS.002 (No Obligatorio)
+ * @param source       Identificador del aplicativo que está llamando el servicio Web
+ * @param format       Formato, utilizar "json" para este caso.​
+ * @param ipwebservice Ip desde la cual se llama al servicio.
+ * @param processdate  Fecha de proceso Fecha (formato ISO-8601)​ - yyyy-MM-dd
+ * @param user         Usuario del CORE que va a procesar los archivos
+ *
+ * @author con_wlopera
+ */
 function getBodyLoadIsoFiles(
   channel,
   company,
@@ -53,19 +69,19 @@ function getBodyLoadIsoFiles(
     company +
     ', "country":' +
     country +
-    '","filename": "' +
+    ', "filename": "' +
     filename +
-    '","fileprefix": "' +
+    '", "fileprefix": "' +
     fileprefix +
-    '","source": "' +
+    '", "source": "' +
     source +
-    '","format": "' +
+    '", "format": "' +
     format +
-    '","ipwebservice": "' +
+    '", "ipwebservice": "' +
     ipwebservice +
-    '","processdate": "' +
+    '", "processdate": "' +
     processdate +
-    ', "user": ' +
+    '", "user": ' +
     user +
     "}"
   );
