@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job_chain title="Copia y cargar archivos">
+  <job_chain_node job="copy_files" next_state="servicio_js_job" error_state="error" state="copy_files"/>
+  <job_chain_node job="servicio_js_job" next_state="success" error_state="error" state="servicio_js_job"/>
+  <job_chain_node state="success"/>
+  <job_chain_node state="error"/>
+</job_chain>

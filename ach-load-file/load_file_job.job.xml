@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <script language="java:javascript">
+    <include live_file="jobs/utility.js"/>
+    <include live_file="jobs/body.js"/>
+    <include live_file="jobs/service.js"/><![CDATA[
+function spooler_process() {
+
+	printInit();
+
+	/*
+	spooler_log.info("##=> spooler_process :" + spooler_task.order.params.names);
+	spooler_log.info("##=> scheduler_file_path :" + spooler_task.order.params.value('scheduler_file_path'));
+	spooler_log.info("##=> scheduler_file_parent :" + spooler_task.order.params.value('scheduler_file_parent'));
+	spooler_log.info("##=> scheduler_source_file_name :" + spooler_task.order.params.value('scheduler_source_file_name'));
+	spooler_log.info("##=> scheduler_target_file_name :" + spooler_task.order.params.value('scheduler_target_file_name'));
+	spooler_log.info("##=> scheduler_file_name :" + spooler_task.order.params.value('scheduler_file_name'));
+	spooler_log.info("##=> scheduler_source_file_parent :" + spooler_task.order.params.value('scheduler_source_file_parent'));
+	spooler_log.info("##=> scheduler_source_file_parent :" + spooler_task.order.params.value('scheduler_source_file_parent'));
+	*/
+ 
+	var filename = spooler_task.order.params.value('scheduler_file_name');	
+	print("Filename", filename);
+	if(filename){
+		switch (getTypeFile(filename)) {
+			case LOAD_FILE_RECEIVED:
+				processLoadFileReceived(filename);
+				break;
+			case LOAD_ISO_FILES:
+				processLoadIsoFiles(filename);
+				break;
+			default:
+				break;
+		}
+		return true;
+	}
+	return false;
+}
+]]>
+  </script>
+  <run_time/>
+</job>

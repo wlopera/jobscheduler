@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job title="Carga de archivo" order="yes" stop_on_error="false">
+  <script language="java:javascript">
+    <include live_file="jobs/utility.js"/>
+    <include live_file="jobs/body.js"/>
+    <include live_file="jobs/service.js"/><![CDATA[
+function spooler_process() {
+
+	printInit();
+
+	var listFilename =  getParameter().value(LIST_RESULT_FILENAMES).split(";");	
+   	
+	// Metodos estaticos que devuelven una ruta al convertir una cadena de ruta o URI
+	var Paths = Java.type( 'java.nio.file.Paths' );
+
+	for (i = 0; i < listFilename.length-1; i++) {	
+
+		// Extraer el nombre del archivo copiado			
+		var path = Paths.get( listFilename[i] );
+		var filename = path.getFileName().toString();
+		
+		//spooler_log.info("##=> Files: " + i + ' - ' + filename );
+			
+		if(filename){
+			switch (getTypeFile(filename)) {
+				case LOAD_FILE_RECEIVED:
+					processLoadFileReceived(filename);
+					break;
+				case LOAD_ISO_FILES:
+					processLoadIsoFiles(filename);
+					break;
+				default:
+					break;
+			}
+		}
+	}	
+
+	return true;
+}
+]]>
+  </script>
+  <run_time/>
+</job>

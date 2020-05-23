@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job title="Copia archivo" order="yes" stop_on_error="false">
+  <params>
+    <param name="target_file" value="D:\JobScheduler\data\received\"/>
+    <param name="source_file" value="D:\JobScheduler\data\origen\"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.file.JobSchedulerCopyFile"/>
+  <run_time/>
+</job>

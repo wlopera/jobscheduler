@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="profile" value="copy_server_local"/>
+    <param name="settings" value="config\live\ach-load-file\config\settings.ini"/>
+    <param name="create_order" value="true"/>
+    <param name="create_orders_for_all_files" value="true"/>
+    <param name="order_jobchain_name" value="/ach-load-file/load_file_chain"/>
+    <param name="next_state" value="load_file_job"/>
+  </params>
+  <environment/>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>

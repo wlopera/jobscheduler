@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="profile" value="copy_server_local"/>
+    <param name="settings" value="config\live\job-ach-load-file\config\settings.ini"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job title="Carga de archivos servicios OL" order="yes" stop_on_error="false">
+  <script language="java:javascript">
+    <include live_file="jobs/utility.js"/>
+    <include live_file="jobs/body.js"/>
+    <include live_file="jobs/service.js"/><![CDATA[
+function spooler_process() {
+
+		printInit();
+
+		var listNames =  getParameter().value(LIST_RESULT_FILENAMES).split(";");	
+		for (var index in listNames) {					
+			 var filename = listNames[index];	
+			 //spooler_log.info("##=> Parametros: " + listNames[index]);	
+			 if(filename){
+				switch (getTypeFile(filename)) {
+					case LOAD_FILE_RECEIVED:
+						processLoadFileReceived(filename);
+						break;
+					case LOAD_ISO_FILES:
+						processLoadIsoFiles(filename);
+						break;
+					default:
+						break;
+				}
+			}
+		}			
+		return true;
+	}
+]]>
+  </script>
+  <run_time/>
+</job>
