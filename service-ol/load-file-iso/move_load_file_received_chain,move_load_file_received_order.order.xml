@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<order>
+  <params>
+    <param name="TIME_DELAY" value="2000"/>
+    <param name="REPEAT_INVOKE_SERVICE" value="10"/>
+    <param name="ENVIROMENT" value="DEV"/>
+    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\received\"/>
+  </params>
+  <run_time/>
+</order>
