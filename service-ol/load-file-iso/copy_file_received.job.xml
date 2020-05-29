@@ -6,11 +6,11 @@
 
   <!-- QA -->
     <param name="source_dir" value="/var/CompartidoISOACH/salida/"/>
-    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyyMMdd]"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyy-MM-dd]"/>
 
   <!-- DEV 
     <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
-    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\recibido_ccb\[date:yyyyMMdd]"/>
+    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\recibido_ccb\[date:yyyy-MM-dd]"/>
   -->
   
     <param name="passive_mode" value="true"/>
