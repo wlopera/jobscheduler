@@ -14,7 +14,7 @@ ARCHIVO ENVIADAS:
   <params>
     <param name="operation" value="copy"/>
     <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
-    <param name="target_dir" value="/var/compartidoDBOracleQA/send/enviado_ccb/[date:yyyyMMdd]"/>
+    <param name="target_dir" value="/var/compartidoDBOracleQA/send/enviado_ccb/[date:yyyy-MM-dd]"/>
     <param name="passive_mode" value="true"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
@@ -29,7 +29,7 @@ ARCHIVO ENVIADAS:
   <params>
     <param name="operation" value="copy"/>
     <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>
-    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\enviado_ccb\[date:yyyyMMdd]"/>
+    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\enviado_ccb\[date:yyyy-MM-dd]"/>
     <param name="passive_mode" value="true"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
@@ -107,7 +107,7 @@ ARCHIVO RECIBIDAS:
   <params>
     <param name="operation" value="copy"/>
     <param name="source_dir" value="/var/CompartidoISOACH/salida/"/>
-    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyyMMdd]"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyy-MM-dd]"/>
     <param name="passive_mode" value="true"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
@@ -122,7 +122,7 @@ ARCHIVO RECIBIDAS:
   <params>
     <param name="operation" value="copy"/>
     <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
-    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\recibido_ccb\[date:yyyyMMdd]"/>
+    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\recibido_ccb\[date:yyyy-MM-dd]"/>
     <param name="passive_mode" value="true"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
