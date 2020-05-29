@@ -6,7 +6,7 @@
 
   <!-- QA -->
     <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
-    <param name="target_dir" value="/var/compartidoDBOracleQA/send/enviado_ccb/[date:yyyy-MM-dd]"/>
+    <param name="target_dir" value="/var/compartidoDBOracleQA/enviado_ccb/[date:yyyy-MM-dd]"/>
 
   <!-- DEV  
     <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>

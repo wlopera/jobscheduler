@@ -6,7 +6,7 @@
 
   <!-- QA -->
     <param name="source_dir" value="/var/CompartidoISOACH/salida/"/>
-    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyy-MM-dd]"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/recibido_ccb/[date:yyyy-MM-dd]"/>
 
   <!-- DEV 
     <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
