@@ -2,10 +2,9 @@
 
 <order>
   <params>
-    <param name="TIME_DELAY" value="2000"/>
+    <param name="TIME_DELAY" value="5000"/>
     <param name="REPEAT_INVOKE_SERVICE" value="10"/>
     <param name="ENVIROMENT" value="DEV"/>
-    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\received\"/>
   </params>
   <run_time/>
 </order>

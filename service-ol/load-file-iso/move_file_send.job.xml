@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="move"/>
+
+  <!-- QA -->
+    <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/entrada/"/>
+
+  <!-- DEV
+    <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>
+    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\entrada\"/>
+  -->
+
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <monitor name="process0" ordering="0">
+    <script language="java:javascript"><![CDATA[
+      function spooler_process_before(){
+        
+          var file_path = spooler_task.order.params.value('ftp_result_filenames');
+          spooler_task.order.params.set_var( 'file_path', file_path );
+          
+        return true;
+      }
+      ]]></script>
+  </monitor>
+  <run_time/>
+</job>

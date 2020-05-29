@@ -1,5 +1,138 @@
-ARCHIVO_RECIBIDAS:
-------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+ARCHIVO ENVIADAS:	
+-----------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	copy_file_send.job.xml: QA
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="copy"/>
+    <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
+    <param name="target_dir" value="/var/compartidoDBOracleQA/send/enviado_ccb/[date:yyyyMMdd]"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+	copy_file_send.job.xml: DEV
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="copy"/>
+    <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>
+    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\enviado_ccb\[date:yyyyMMdd]"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	move_file_send.job.xml: QA
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="move"/>
+    <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/entrada/"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <monitor name="process0" ordering="0">
+    <script language="java:javascript"><![CDATA[
+      function spooler_process_before(){
+        
+          var file_path = spooler_task.order.params.value('ftp_result_filenames');
+          spooler_task.order.params.set_var( 'file_path', file_path );
+          
+        return true;
+      }
+      ]]></script>
+  </monitor>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+	move_file_send.job.xml: DEV
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="move"/>
+    <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>
+    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\entrada\"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <monitor name="process0" ordering="0">
+    <script language="java:javascript"><![CDATA[
+      function spooler_process_before(){
+        
+          var file_path = spooler_task.order.params.value('ftp_result_filenames');
+          spooler_task.order.params.set_var( 'file_path', file_path );
+          
+        return true;
+      }
+      ]]></script>
+  </monitor>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+ARCHIVO RECIBIDAS:
+-----------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	copy_file_received.job.xml: QA
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="copy"/>
+    <param name="source_dir" value="/var/CompartidoISOACH/salida/"/>
+    <param name="target_dir" value="/var/CompartidoISOACH/salida/recibido_ccb/[date:yyyyMMdd]"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+	copy_file_received.job.xml: DEV
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+  <params>
+    <param name="operation" value="copy"/>
+    <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
+    <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\recibido_ccb\[date:yyyyMMdd]"/>
+    <param name="passive_mode" value="true"/>
+  </params>
+  <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <run_time/>
+</job>
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	move_file_received.job.xml: QA
+-----------------------------------------------------------------------------------------------------------------------------
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
 <job order="yes" stop_on_error="false">
@@ -11,21 +144,85 @@ ARCHIVO_RECIBIDAS:
     <param name="force_files" value="false"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <monitor name="process0" ordering="0">
+    <script language="java:javascript"><![CDATA[
+      function spooler_process_before(){
+        
+          var file_path = spooler_task.order.params.value('ftp_result_filenames');
+          spooler_task.order.params.set_var( 'file_path', file_path );
+          
+        return true;
+      }
+      ]]></script>
+  </monitor>
   <run_time/>
 </job>
-
-
-ARCHIVO_ENVIADAS:
------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	move_file_received.job.xml: DEV
+-----------------------------------------------------------------------------------------------------------------------------
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
 <job order="yes" stop_on_error="false">
- <params>
+  <params>
     <param name="operation" value="move"/>
-    <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
-    <param name="target_dir" value="/var/CompartidoISOACH/entrada/"/>
+    <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
+    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\received\"/>
     <param name="passive_mode" value="true"/>
+    <param name="force_files" value="false"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>
+  <monitor name="process0" ordering="0">
+    <script language="java:javascript"><![CDATA[
+      function spooler_process_before(){
+        
+          var file_path = spooler_task.order.params.value('ftp_result_filenames');
+          spooler_task.order.params.set_var( 'file_path', file_path );
+          
+        return true;
+      }
+      ]]></script>
+  </monitor>
   <run_time/>
 </job>
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+CARGAR ARCHIVOS:	
+----------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+	load_file_received.job.xml: QA
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+<params>
+    <param name="target_dir" value="/var/compartidoDBOracleQA/received/"/>
+  </params>
+  <script language="java" java_class="com.ol.load.file.LoadFileISO"/>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+	load_file_received.job.xml: DEV
+-----------------------------------------------------------------------------------------------------------------------------
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<job order="yes" stop_on_error="false">
+<params>
+    <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\received\"/>
+  </params>
+  <script language="java" java_class="com.ol.load.file.LoadFileISO"/>
+  <run_time/>
+</job>
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
