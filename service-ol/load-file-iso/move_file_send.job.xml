@@ -8,11 +8,11 @@
     <param name="source_dir" value="/var/compartidoDBOracleQA/send/"/>
     <param name="target_dir" value="/var/CompartidoISOACH/entrada/"/>
 
-  <!-- DEV
+  <!-- DEV 
     <param name="source_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\send\"/>
     <param name="target_dir" value="D:\JobScheduler\data\CompartidoISOACH\entrada\"/>
   -->
-
+  
     <param name="passive_mode" value="true"/>
   </params>
   <script language="java" java_class="sos.scheduler.jade.JadeJob"/>

@@ -8,8 +8,8 @@
     <param name="source_dir" value="/var/CompartidoISOACH/salida/"/>
     <param name="target_dir" value="/var/compartidoDBOracleQA/received/"/>
 
-  <!-- DEV
-    param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
+  <!-- DEV 
+    <param name="source_dir" value="D:\JobScheduler\data\CompartidoISOACH\salida\"/>
     <param name="target_dir" value="D:\JobScheduler\data\compartidoDBOracleQA\received\"/>
   -->
 
