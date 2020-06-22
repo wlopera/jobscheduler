@@ -2,7 +2,7 @@
 
 <order>
   <params>
-    <param name="TIME_DELAY" value="5000"/>
+    <param name="TIME_DELAY" value="15000"/>
     <param name="REPEAT_INVOKE_SERVICE" value="10"/>
     <param name="ENVIROMENT" value="QA"/>
   </params>

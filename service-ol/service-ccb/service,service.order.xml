@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
-<order>
+<order priority="0" state="service">
   <params>
-    <param name="AUTHORIZATION_BASE" value="Basic aW5ub3ZhY2lvbjozODk0ZTk0YTdiYmI0M2MyYWFkYmQ2Y2VjNWI0NTI4Yg=="/>
-    <param name="ENDPOINT_TOKEN" value="/uaa/oauth/token?grant_type=client_credentials&amp;scope=APISecured"/>
     <param name="HTTP_METHOD" value="POST"/>
-    <param name="ENDPOINT_SERVICE" value="/ach-iso-api/api/v1/core/"/>
     <param name="BODY" value="{&quot;channel&quot;:&quot;1&quot;,&quot;company&quot;:&quot;1&quot;,&quot;country&quot;:&quot;1&quot;,&quot;source&quot;:&quot;N5&quot;,&quot;format&quot;:&quot;JSON&quot;,&quot;processcode&quot;:&quot;20191014001721&quot;,&quot;user&quot;:1}"/>
-    <param name="IP_API_MANAGMENT" value="http://192.168.251.30:9080"/>
+    <param name="ENVIRONMENT" value="DEV"/>
     <param name="SERVICE_NAME" value="get-file-ach-flow"/>
+    <param name="ENDPOINT_SERVICE" value="/ach-iso-api/api/v1/core/"/>
   </params>
   <run_time/>
 </order>
